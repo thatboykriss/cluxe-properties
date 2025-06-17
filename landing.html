@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <title>C.luxe Properties | Luxury Real Estate</title> -->
+    <title>Luxury Properties in Lagos | C. Luxe Properties</title>
+    <meta name="description" content="Find luxury homes, shortlets, and investment properties in Lagos with C. Luxe Properties. Invest Smart, Live Luxury.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" type="image/png">
+
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .search-form {
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #D1A054;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
+</head>
+<body id="home" class="font-sans antialiased text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="" class="text-2xl font-bold text-gray-800">
+                    <!-- <span  target="_self" class="text-amber-700">C.</span>luxe Properties -->
+                    <img src="photos/copy 2.png" alt="C. Luxe Logo" class="h-20 w-auto inline-block">
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-amber-700 transition">Home</a>
+                <a href="#properties" class="text-gray-700 hover:text-amber-700 transition">Properties</a>
+                <a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-gray-700 hover:text-amber-700 transition">Services</a>
+                <a href="#contact" class="text-gray-700 hover:text-amber-700 transition">Contact</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="https://wa.me/2349054239628" target="_blank" class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 rounded-full font-medium transition">Schedule Consultation</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full px-4 pb-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-amber-700 py-2 border-b">Home</a>
+                <a href="#properties" class="text-gray-700 hover:text-amber-700 py-2 border-b">Properties</a>
+                <a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-gray-700 hover:text-amber-700 py-2 border-b">Services</a>
+                <a href="#contact" class="text-gray-700 hover:text-amber-700 py-2 border-b">Contact</a>
+                <a href="https://wa.me/2349054239628" target="_blank" class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 rounded-full font-medium text-center transition">Schedule Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Discover Your Dream Home</h1>
+                <p class="text-xl text-gray-200 mb-8">C.luxe Properties specializes in luxury real estate, offering exclusive properties in the most sought-after locations worldwide.</p>
+                <div class="flex space-x-4">
+                    <a href="#properties" class="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-full font-medium transition">View Properties</a>
+                    <a href="https://wa.me/2349054239628" target="_blank" class="border-2 border-white text-white hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full font-medium transition">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Form -->
+    <div class="container mx-auto px-4 -mt-16 relative z-10">
+        <div class="search-form bg-white bg-opacity-90 rounded-xl shadow-xl p-6">
+            <h3 class="text-xl font-semibold mb-6 text-gray-800">Find Your Perfect Property</h3>
+    
+            <form class="grid grid-cols-1 md:grid-cols-4 gap-4" onsubmit="sendSearchToWhatsApp(); return false;">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                    <select id="location" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+                        <option value="Not specified">Select Area</option>
+                        <option>Ikoyi</option>
+                        <option>V.I</option>
+                        <option>Lekki</option>
+                        <option>Ikate</option>
+                        <option>Orchid</option>
+                        <option>Ikota</option>
+                        <option>Ajah</option>
+                        <option>Abraham Adesoya</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
+                    <select id="type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+                        <option value="Not specified">All Types</option>
+                        <option>Shortlet</option>
+                        <option>Land</option>
+                        <option>Apartment</option>
+                        <option>Rentals</option>
+                        <option>Maisonette</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+                    <select id="price" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+                        <option value="Not specified">Any Price</option>
+                        <option>N100k - N1M</option>
+                        <option>N1M - N10M</option>
+                        <option>N10M - N50M</option>
+                        <option>N50M - N100M</option>
+                        <option>N100M - N200M</option>
+                        <option>N200M - N500M</option>
+                        <option>N500M - N1B</option>
+                        <option>N1B+</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-lg font-medium transition">Search Properties</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function sendSearchToWhatsApp() {
+            const location = document.getElementById('location').value;
+            const type = document.getElementById('type').value;
+            const price = document.getElementById('price').value;
+    
+            const message = `Hello, I'm interested in properties in *${location}*, Type: *${type}*, Price Range: *${price}*. Can you assist?`;
+            const encodedMessage = encodeURIComponent(message);
+    
+            window.open(`https://wa.me/2349054239628?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+    
+
+    <!-- Featured Properties 1-->
+    <section id="properties" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Properties</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore our curated selection of premium properties that redefine luxury living.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="photos/5 bed osapa/5 bedroom.jpeg" alt="Luxury Duplex" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">Apartment</div>
+                        <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N550,000,000</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Open Rooftop Terrace & BQ</h3>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Osapa, Lekki
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                            <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 5 Beds</span>
+                            <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 5 Baths</span>
+                            <!-- <span class="flex items-center"><i class="fas fa-ruler-combined text-amber-700 mr-1"></i> 4,200 sqft</span> -->
+                        </div>
+                        <a href="osapa-5bed.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="photos/4 bed lekki/4 bed.jpeg" alt="Modern Duplex" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N990,000,000</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Detached Duplex with Cinema & Pool</h3>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Lekki Phase 1, Lagos
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                            <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 4 Beds</span>
+                            <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 4 Baths</span>
+                            <!-- <span class="flex items-center"><i class="fas fa-ruler-combined text-amber-700 mr-1"></i> 3,500 sqft</span> -->
+                        </div>
+                        <a href="lekki-4bed.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="photos/6 bed lekki/6 bed.jpeg" alt="Countryside Mansion" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">New Listing</div>
+                        <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N1,000,000,000</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Detached House with 2 BQ, Cinema, Gym & Pool</h3>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Lekki Phase 1, Lagos State
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                            <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 6 Beds</span>
+                            <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 6 Baths</span>
+                            <!-- <span class="flex items-center"><i class="fas fa-ruler-combined text-amber-700 mr-1"></i> 7,800 sqft</span> -->
+                        </div>
+                        <a href="lekki-6bed.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
+
+                <!-- Property 4 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                  <div class="relative">
+                    <img src="photos/1 bed apartment/1.jpg" alt="Luxury Duplex" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">Shorlet</div>
+                    <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N145,000</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">1 Bedroom Apartment</h3>
+                    <p class="text-gray-600 mb-4 flex items-center">
+                      <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> MIJL Residence, Ikate
+                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                      <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 1 Beds</span>
+                      <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 1 Baths</span>
+                      <span class="flex items-center"><i class="fas fa-moon text-amber-700 mr-1"></i> 1</span>
+                    </div>
+                    <a href="1bed-mijl.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                      View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              
+                <!-- Property 5 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                  <div class="relative">
+                    <img src="photos/2 bed aparte/1.jpg" alt="Modern Duplex" class="w-full h-64 object-cover">
+                    <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N265,000</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">2 Bedroom Apartment</h3>
+                    <p class="text-gray-600 mb-4 flex items-center">
+                      <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Parkview Estate, Ikoyi
+                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                      <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 2 Beds</span>
+                      <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 2 Baths</span>
+                      <span class="flex items-center"><i class="fas fa-moon text-amber-700 mr-1"></i> 1</span>
+                    </div>
+                    <a href="2bed-ikoyi.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                      View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              
+                <!-- Property 6 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                  <div class="relative">
+                    <img src="photos/la'maison/1.webp" alt="Countryside Mansion" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">New Listing</div>
+                    <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N400,000</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">La’Maisonette</h3>
+                    <p class="text-gray-600 mb-4 flex items-center">
+                      <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Off Admiralty Way, Lekki Phase 1
+                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                      <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 4 Beds</span>
+                      <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 4 Baths</span>
+                      <span class="flex items-center"><i class="fas fa-moon text-amber-700 mr-1"></i> 1</span>
+                    </div>
+                    <a href="la-maisonette.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                      View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+            
+              
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Property 7 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                  <div class="relative">
+                    <img src="photos/mega one lagos/1.jpg" alt="Luxury Duplex" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">Lands</div>
+                    <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N19,000,000</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">MEGAONE LAGOS</h3>
+                    <p class="text-gray-600 mb-4 flex items-center">
+                      <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Lekki-Epe Expressway, Lagos State.
+                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                      <!-- <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 5 Beds</span>
+                      <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 5 Baths</span> -->
+                      <span class="flex items-center"><i class="fas fa-ruler-combined text-amber-700 mr-1"></i> 300 SQM</span>
+                    </div>
+                    <a href="megaone-lagos.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                      View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              
+                <!-- Property 8 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                  <div class="relative">
+                    <img src="photos/aje-gardens/1.jpg" alt="Modern Duplex" class="w-full h-64 object-cover">
+                    <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N15,000,000</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Ajé Gardens</h3>
+                    <p class="text-gray-600 mb-4 flex items-center">
+                      <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Elerangbe, Ibeju-Lekki, Lagos
+                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                      <!-- <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 4 Beds</span>
+                      <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 4 Baths</span> -->
+                      <span class="flex items-center"><i class="fas fa-ruler-combined text-amber-700 mr-1"></i> 300 SQM</span>
+                    </div>
+                    <a href="aje-gardens.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                      View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              
+                <!-- Property 9 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg transition duration-300">
+                  <div class="relative">
+                    <img src="photos/appleton enclave/1.jpg" alt="Countryside Mansion" class="w-full h-64 object-cover">
+                    <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">New Listing</div>
+                    <div class="absolute bottom-4 left-4 bg-white text-amber-700 px-3 py-1 rounded-full text-sm font-medium">N16,000,000</div>
+                  </div>
+                  <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Appleton Enclave</h3>
+                    <p class="text-gray-600 mb-4 flex items-center">
+                      <i class="fas fa-map-marker-alt text-amber-700 mr-2"></i> Free Trade Zone, Ibeju Lekki
+
+                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">
+                      <!-- <span class="flex items-center"><i class="fas fa-bed text-amber-700 mr-1"></i> 6 Beds</span>
+                      <span class="flex items-center"><i class="fas fa-bath text-amber-700 mr-1"></i> 6 Baths</span> -->
+                      <span class="flex items-center"><i class="fas fa-ruler-combined text-amber-700 mr-1"></i> 300 SQM</span>
+                    </div>
+                    <a href="appleton-enclave.html" target="_blank" class="text-amber-700 font-medium hover:text-amber-800 transition flex items-center">
+                      View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              
+              </div>
+              
+            
+            
+            <div class="text-center mt-12">
+                <a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="inline-block border-2 border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-white px-8 py-3 rounded-full font-medium transition">Services</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose C.luxe Properties</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our commitment to excellence and personalized service sets us apart in the luxury real estate market.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl text-amber-700 mb-6">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Market Expertise</h3>
+                    <p class="text-gray-600">With over 10 years in luxury real estate, we have unparalleled knowledge of high-end property markets worldwide.</p>
+                </div>
+                
+                <div class="feature-card bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl text-amber-700 mb-6">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Personalized Service</h3>
+                    <p class="text-gray-600">We provide white-glove service tailored to your unique needs, ensuring a seamless real estate experience.</p>
+                </div>
+                
+                <div class="feature-card bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition duration-300">
+                    <div class="feature-icon text-4xl text-amber-700 mb-6">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Discretion & Privacy</h3>
+                    <p class="text-gray-600">We understand the importance of confidentiality in high-profile transactions and maintain strict privacy protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear what our clients say about their experience with C.luxe Properties.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-700 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The team at C.luxe made finding our dream home effortless. Their attention to detail and market knowledge saved us months of searching."</p>
+                    <div class="flex items-center">
+                        <img src="photos/ChatGPT Image Jun 16, 2025, 02_00_13 PM.png" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">Homeowner, Ikota GRA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-700 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"As an international investor, I needed a team who understood global markets. C.luxe exceeded all expectations with their network and expertise."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael Kenny</h4>
+                            <p class="text-gray-500 text-sm">Investor, Coastal road</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-700 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The negotiation skills of the C.luxe team secured us a property we thought was out of reach. Their professionalism is unmatched in the industry."</p>
+                    <div class="flex items-center">
+                        <img src="photos/ChatGPT Image Jun 16, 2025, 01_52_56 PM.png" alt="Emily Rodriguez" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Emily Smith</h4>
+                            <p class="text-gray-500 text-sm">Homeowner, Orchid</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="max-w-2xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4 text-center">Get in Touch</h2>
+        <form action="mailto:cluxeproperties@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+          <div>
+            <label class="block mb-1 font-medium">Name</label>
+            <input type="text" name="Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block mb-1 font-medium">Email</label>
+            <input type="email" name="Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+          </div>
+          <div>
+            <label class="block mb-1 font-medium">Message</label>
+            <textarea name="Message" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"></textarea>
+          </div>
+          <button type="submit" target="_blank" class="w-full bg-amber-700 text-white font-semibold py-3 rounded-lg hover:bg-amber-800 transition">Send Message</button>
+        </form>
+      </section>
+  
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" alt="C. Luxe Logo" class="h-20 w-auto inline-block">
+                     <!-- <h3 class="text-2xl font-bold mb-4">
+                        <span class="text-amber-700">C.</span>luxe Properties
+                    </h3> -->
+                    <p class="text-gray-400"><i>...Invest smart, Live luxury.</i></p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="https://Facebook.com/cluxeproperties" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com/@c.luxeproperties" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2349054239628" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:cluxeproperties@gmail.com" target="_blank" class="text-gray-400 hover:text-amber-700 transition">
+                            <i class="fas fa-envelope" style="transform: rotate(0); display: inline-block;"></i>
+                          </a>
+                          
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-700 transition">Home</a></li>
+                        <li><a href="aboutUs.html" target="_blank" class="text-gray-400 hover:text-amber-700 transition">About Us</a></li>
+                        <li><a href="#properties" class="text-gray-400 hover:text-amber-700 transition">Properties</a></li>
+                        <li><a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-gray-400 hover:text-amber-700 transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-700 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Selling</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Shortlet</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Renting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Property Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Investment Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-700 mt-1 mr-3"></i>
+                            <span class="text-gray-400">Ayo Adeleye Drive<br>Lekki, Lagos.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-amber-700 mr-3" style="transform: rotate(180deg) scaleY(-1);"></i>
+                            <span class="text-gray-400">+234 9054239628, +234 8167992547</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-amber-700 mr-3"></i>
+                            <span class="text-gray-400">cluxeproperties@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 C.luxe Properties. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-amber-700 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
+</body>
+</html>

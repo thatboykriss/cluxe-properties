@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MegaOne Lagos | C. Luxe Properties</title>
+  <link rel="icon" type="image/png" href="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .gallery img { cursor: pointer; transition: transform 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <header class="bg-gray-900 text-white p-4 text-center flex flex-col md:flex-row md:justify-center md:items-center gap-3">
+    <img src="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" alt="C. Luxe Logo" class="h-10 w-auto inline-block">
+    <div>
+      <h1 class="text-2xl font-bold">C. Luxe Properties</h1>
+      <p class="text-sm">Invest Smart. Live Luxury.</p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6">
+
+    <section class="mb-10">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">MegaOne Lagos</h2>
+      <p class="text-center text-lg text-gray-600 mb-8">Where urban living meets healthy living.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <img src="photos/mega one lagos/1.jpg" alt="MegaOne Lagos Estate" class="rounded-lg shadow-lg">
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Estate Overview</h3>
+          <p class="text-gray-700 mb-4">From eco-friendly to luxurious, MegaOne Lagos offers pristine indulgence and serenity with guaranteed high returns on your investment.</p>
+
+          <h4 class="text-lg font-semibold mb-2">Title:</h4>
+          <p class="text-gray-700 mb-4">Certificate of Occupancy (C of O)</p>
+
+          <h4 class="text-lg font-semibold mb-2">Location:</h4>
+          <p class="text-gray-700 mb-4">Lekki-Epe Expressway, Lagos State</p>
+
+          <h4 class="text-lg font-semibold mb-2">Pre-Launch Prices:</h4>
+          <ul class="list-disc list-inside text-gray-700 mb-4">
+            <li>300sqm: ₦19m</li>
+            <li>500sqm: ₦30m</li>
+            <li>1000sqm: ₦75m</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Gallery</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 gallery">
+        <img src="photos/mega one lagos/1.jpg" alt="Gallery Image 1" class="rounded-lg shadow">
+        <img src="photos/mega one lagos/2.jpg" alt="Gallery Image 2" class="rounded-lg shadow">
+        <img src="photos/mega one lagos/3.jpg" alt="Gallery Image 3" class="rounded-lg shadow">
+        <!-- <img src="photos/mega one lagos/4.mp4" alt="Gallery Image 4" class="rounded-lg shadow"> -->
+        <!-- <img src="photos/megaone-5.jpeg" alt="Gallery Image 5" class="rounded-lg shadow">
+        <img src="photos/megaone-6.jpeg" alt="Gallery Image 6" class="rounded-lg shadow"> -->
+      </div>
+    </section>
+
+     <!-- Video Modal -->
+     <div id="videoModal" class="modal" onclick="closeVideo()">
+        <div class="relative w-full h-full flex justify-center items-center">
+          <video id="videoFile" controls class="rounded-lg">
+            <source src="photos/mega one lagos/4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button onclick="closeVideo()" class="absolute top-5 right-8 text-white text-3xl font-bold">&times;</button>
+        </div>
+      </div>
+
+    <!-- Features -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Estate Features</h3>
+      <ul class="list-disc list-inside text-gray-700 mb-4">
+        <li>Perimeter Fence</li>
+        <li>Gatehouse</li>
+        <li>24/7 Security System</li>
+        <li>Potable Water Supply</li>
+        <li>Electricity</li>
+        <li>Concretized Drainage</li>
+        <li>Solar-Powered Streetlights</li>
+        <li>Good Sewage System</li>
+      </ul>
+    </section>
+
+    <!-- Landmarks -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-gray-800 mb-4">Nearby Landmarks</h3>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Lekki International Airport</li>
+        <li>Alaro City</li>
+        <li>Pan Atlantic University</li>
+        <li>Eleganza Industrial City</li>
+        <li>Lekki Free Trade Zone</li>
+        <li>Lekki Deep Sea Port</li>
+        <li>La Campagne Tropicana Beach Resort</li>
+        <li>Eleko Beach</li>
+        <li>Dangote Refinery</li>
+      </ul>
+    </section>
+
+    <!-- WhatsApp CTA -->
+  <div class="mt-6">
+    <a href="https://wa.me/2349054239628?text=I%20am%20interested%20in%20Mega%20One,%20Still%20available?." 
+       class="inline-block bg-green-600 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">
+       Call or WhatsApp
+    </a>
+  </div>
+
+
+  </main>
+
+  <footer class="bg-gray-900 text-gray-300 text-center py-4 text-sm">
+    &copy; 2025 C. Luxe Properties
+  </footer>
+
+  <!-- <script>
+    function openVideo() {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("videoFile");
+      modal.classList.add("active");
+      video.currentTime = 0;
+      video.play();
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("videoFile");
+      video.pause();
+      modal.classList.remove("active");
+    }
+  </script> -->
+
+</body>
+</html>

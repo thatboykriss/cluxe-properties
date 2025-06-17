@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | C. Luxe Properties</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" type="image/png">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <header class="bg-gray-900 text-white p-4 text-center md:flex md:items-center md:justify-center gap-3">
+    <img src="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" alt="C. Luxe Logo" class="h-10 w-auto inline-block">
+    <div>
+      <h1 class="text-2xl font-bold">C. Luxe Properties</h1>
+      <p class="text-sm">Invest Smart. Live Luxury.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-6 text-center">About C. Luxe Properties</h2>
+
+    <section class="mb-12">
+      <h3 class="text-xl font-semibold mb-3">Who We Are</h3>
+      <p class="text-gray-700 leading-relaxed">
+        C. Luxe Properties is a premier real estate brand committed to providing luxurious, high-quality properties to discerning clients across Lagos and beyond. We specialize in sales of high-end residential properties, investment properties, and bespoke property consultation. Our mission is to connect you to homes that reflect elegance, class, and smart investment choices.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h3 class="text-xl font-semibold mb-3">Our Vision</h3>
+      <p class="text-gray-700 leading-relaxed">
+        To become the leading choice for luxury property acquisition and real estate investment solutions in Nigeria and Africa, delivering exceptional value to every client.
+      </p>
+    </section>
+
+    <section class="mb-12 relative">
+        <h3 class="text-xl font-semibold mb-3">Meet the Founder</h3>
+        <div class="md:flex md:items-center md:gap-6">
+          <img src="photos/Founder.png" alt="Christian Chima-Solomon - Founder of C. Luxe Properties"
+               class="w-40 h-40 rounded-full object-cover mb-4 md:mb-0 cursor-pointer"
+               onclick="document.getElementById('lightbox').classList.remove('hidden')">
+               
+          <div>
+            <h4 class="text-lg font-bold">Christian Chima-Solomon</h4>
+            <p class="text-gray-700 leading-relaxed mt-2">
+              Christian is a passionate realtor and property investment consultant who founded C. Luxe Properties to redefine luxury living in Nigeria. With an eye for value and commitment to excellence, Christian is dedicated to helping clients find the perfect home or real estate investment.
+            </p>
+          </div>
+        </div>
+      
+        <!-- Lightbox -->
+        <div id="lightbox" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div class="relative max-w-3xl w-full p-4">
+            <button onclick="document.getElementById('lightbox').classList.add('hidden')"
+                    class="absolute top-2 right-2 text-white text-2xl font-bold">&times;</button>
+            <img src="photos/Founder.png" alt="Full Image of Founder" class="w-full rounded-lg shadow-lg">
+          </div>
+        </div>
+      </section>
+      
+
+    <div class="text-center my-8">
+      <a href="https://wa.me/2349054239628" class="inline-block bg-green-600 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-green-700 transition">Contact on WhatsApp</a>
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-900 text-gray-300 text-center py-4 text-sm">
+    &copy; 2025 C. Luxe Properties | <a href="#" class="text-amber-500">Privacy Policy</a>
+  </footer>
+
+</body>
+</html>
