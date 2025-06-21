@@ -64,6 +64,28 @@
         }
     </style>
 </head>
+<!-- WhatsApp Chat Widget -->
+<div id="whatsappWidget" class="fixed bottom-6 right-6 z-50">
+  <!-- Floating Button -->
+  <button onclick="toggleChat()" class="bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-700 transition">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </button>
+
+  <!-- Chat Box -->
+  <div id="whatsappChatBox" class="hidden mt-2 bg-white rounded-lg shadow-lg p-4 w-72 text-gray-800">
+    <div class="flex justify-between items-center mb-3">
+      <h4 class="font-semibold text-lg">Hi there 👋</h4>
+      <button onclick="toggleChat()" class="text-gray-500 hover:text-gray-900 text-xl">&times;</button>
+    </div>
+    <p class="mb-3">Have questions? Chat with us on WhatsApp now.</p>
+    <a href="https://wa.me/2349054239628?text=Hello%20C.Luxe%20Properties%2C%20I%27m%20interested%20in%20your%20properties."
+       target="_blank"
+       class="block bg-green-600 text-white text-center px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition">
+      Start Chat
+    </a>
+  </div>
+</div>
+
 <body id="home" class="font-sans antialiased text-gray-800">
     <!-- Header/Navigation -->
     <header class="fixed w-full z-50 bg-white shadow-md">
@@ -145,6 +167,7 @@
                         <option>Land</option>
                         <option>Apartment</option>
                         <option>Rentals</option>
+                        <option>Duplex</option>
                         <option>Maisonette</option>
                     </select>
                 </div>
@@ -621,6 +644,8 @@
         </div>
     </footer>
 
+    
+
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-amber-700 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
@@ -694,5 +719,13 @@
         window.addEventListener('scroll', fadeInOnScroll);
         window.addEventListener('load', fadeInOnScroll);
     </script>
+
+    <script>
+  function toggleChat() {
+    const chatBox = document.getElementById('whatsappChatBox');
+    chatBox.classList.toggle('hidden');
+  }
+</script>
+
 </body>
 </html>
