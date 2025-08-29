@@ -12,21 +12,33 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>C.luxe Properties | Luxury Real Estate</title> -->
-    <title>Luxury Properties in Lagos | C.Luxe Properties</title>
-    <meta name="description" content="Find luxury homes, shortlets, and investment properties in Lagos with C.Luxe Properties. Invest Smart, Live Luxury.">
+    <title>Luxury Properties in Lagos | C.Luxe Properties and Homes</title>
+    <meta name="description" content="Find luxury homes, shortlets, and investment properties in Lagos with C.Luxe Properties. ...End-to-end property solution.">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" type="image/png">
+    <link rel="icon" href="photos/2.png" type="image/png">
+    <!-- Standard Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="photos/2.png">
+<link rel="icon" type="image/png" sizes="16x16" href="photos/2.png">
+
+<!-- For Apple / Mobile -->
+<link rel="apple-touch-icon" href="photos/2.png">
+
+<!-- For Android / PWA -->
+<link rel="manifest" href="photos/2.png">
+<meta name="theme-color" content="#ffffff">
+
 
     <style>
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    background-image:
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
         
         .property-card:hover {
             transform: translateY(-5px);
@@ -64,146 +76,329 @@
         }
     </style>
 </head>
-<!-- WhatsApp Chat Widget -->
-<div id="whatsappWidget" class="fixed bottom-6 right-6 z-50">
-  <!-- Floating Button -->
-  <button onclick="toggleChat()" class="bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-700 transition">
-    <i class="fab fa-whatsapp text-2xl"></i>
-  </button>
 
-  <!-- Chat Box -->
-  <div id="whatsappChatBox" class="hidden mt-2 bg-white rounded-lg shadow-lg p-4 w-72 text-gray-800">
-    <div class="flex justify-between items-center mb-3">
-      <h4 class="font-semibold text-lg">Hi there 👋</h4>
-      <button onclick="toggleChat()" class="text-gray-500 hover:text-gray-900 text-xl">&times;</button>
+
+<!-- WhatsApp Chat Popup -->
+<div id="whatsapp-popup" class="fixed bottom-6 right-6 z-50">
+  <!-- Floating WhatsApp Icon -->
+  <div id="whatsapp-btn" class="bg-green-600 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg cursor-pointer">
+    <i class="fab fa-whatsapp text-3xl"></i>
+  </div>
+
+  <!-- Popup Window -->
+  <div id="whatsapp-window" class="hidden bg-white w-72 rounded-xl shadow-2xl mt-4 overflow-hidden">
+    <div class="bg-green-600 font-bold text-3xl text-white p-4 flex items-center">
+   <h1>Hello!</h1>
+  </div>
+    <div class="p-4 text-gray-700 space-y-1 text-center" >
+       <img src="photos/Founder.png" alt="Christian" class="mx-auto w-20 h-20 rounded-full border-2 border-white">
+    <div class="text-center">
+        <h6 class="text-xs">Sales Executive</h6>
+        <p class="font-bold text-2xl text-black">Christian Solomon</p>
     </div>
-    <p class="mb-3">Have questions? Chat with us on WhatsApp now.</p>
-    <a href="https://wa.me/2349054239628?text=Hello%20C.Luxe%20Properties%2C%20I%27m%20interested%20in%20your%20properties."
-       target="_blank"
-       class="block bg-green-600 text-white text-center px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition">
-      Start Chat
-    </a>
+    </div>
+
+
+    <div class="p-3 bg-gray-50 border-t text-xs text-center">
+        <h6>Christian Solomon here. Nice to meet you. 
+        Do you have any questions about our product and services? I'm happy to help.</h6>
+        <a href="https://wa.me/2349054239628?text=Hello%20Christian%2C%20I%27m%20interested%20in%20a%20property." target="_blank" 
+         class="inline-block w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium transition">
+        Start Chat
+      </a>
+    </div>
   </div>
 </div>
 
+<!-- Script -->
+<script>
+  const whatsappBtn = document.getElementById("whatsapp-btn");
+  const whatsappWindow = document.getElementById("whatsapp-window");
+
+  whatsappBtn.addEventListener("click", () => {
+    whatsappWindow.classList.toggle("hidden");
+  });
+</script>
+
+
+
 <body id="home" class="font-sans antialiased text-gray-800">
     <!-- Header/Navigation -->
-    <header class="fixed w-full z-50 bg-white shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="" class="text-2xl font-bold text-gray-800">
-                    <!-- <span  target="_self" class="text-amber-700">C.</span>luxe Properties -->
-                    <img src="photos/copy 2.png" alt="C.Luxe Logo" class="h-20 w-auto inline-block">
-                </a>
-            </div>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-amber-700 transition">Home</a>
-                <a href="#properties" class="text-gray-700 hover:text-amber-700 transition">Properties</a>
-                <a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-gray-700 hover:text-amber-700 transition">Services</a>
-                <a href="#contact" class="text-gray-700 hover:text-amber-700 transition">Contact</a>
-            </div>
-
-            <div class="hidden md:block">
-                <a href="https://wa.me/2349054239628" target="_blank" class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 rounded-full font-medium transition">Schedule Consultation</a>
-            </div>
-            
-            <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white w-full px-4 pb-4 shadow-lg">
-            <div class="flex flex-col space-y-3">
-                <a href="#home" class="text-gray-700 hover:text-amber-700 py-2 border-b">Home</a>
-                <a href="#properties" class="text-gray-700 hover:text-amber-700 py-2 border-b">Properties</a>
-                <a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-gray-700 hover:text-amber-700 py-2 border-b">Services</a>
-                <a href="#contact" class="text-gray-700 hover:text-amber-700 py-2 border-b">Contact</a>
-                <a href="https://wa.me/2349054239628" target="_blank" class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 rounded-full font-medium text-center transition">Schedule Consultation</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-bg h-screen flex items-center pt-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl fade-in">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Discover Your Dream Home</h1>
-                <p class="text-xl text-gray-200 mb-8">C.luxe Properties specializes in luxury real estate, offering exclusive properties in the most sought-after locations worldwide.</p>
-                <div class="flex space-x-4">
-                    <a href="#properties" class="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-full font-medium transition">View Properties</a>
-                    <a href="https://wa.me/2349054239628" target="_blank" class="border-2 border-white text-white hover:bg-white hover:text-gray-800 px-8 py-3 rounded-full font-medium transition">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Form -->
-    <div class="container mx-auto px-4 -mt-16 relative z-10">
-        <div class="search-form bg-white bg-opacity-90 rounded-xl shadow-xl p-6">
-            <h3 class="text-xl font-semibold mb-6 text-gray-800">Find Your Perfect Property</h3>
-    
-            <form class="grid grid-cols-1 md:grid-cols-4 gap-4" onsubmit="sendSearchToWhatsApp(); return false;">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-                    <select id="location" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
-                        <option value="Not specified">Select Area</option>
-                        <option>Ikoyi</option>
-                        <option>V.I</option>
-                        <option>Lekki</option>
-                        <option>Ikate</option>
-                        <option>Orchid</option>
-                        <option>Ikota</option>
-                        <option>Ajah</option>
-                        <option>Abraham Adesoya</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
-                    <select id="type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
-                        <option value="Not specified">All Types</option>
-                        <option>Shortlet</option>
-                        <option>Land</option>
-                        <option>Apartment</option>
-                        <option>Rentals</option>
-                        <option>Duplex</option>
-                        <option>Maisonette</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
-                    <select id="price" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
-                        <option value="Not specified">Any Price</option>
-                        <option>₦100k - ₦1M</option>
-                        <option>₦1M - ₦10M</option>
-                        <option>₦10M - ₦50M</option>
-                        <option>₦50M - ₦100M</option>
-                        <option>₦100M - ₦200M</option>
-                        <option>₦200M - ₦500M</option>
-                        <option>₦500M - ₦1B</option>
-                        <option>₦1B+</option>
-                    </select>
-                </div>
-                <div class="flex items-end">
-                    <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-lg font-medium transition">Search Properties</button>
-                </div>
-            </form>
-        </div>
+    <!-- Header -->
+<header id="main-header" class="absolute top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
+  <div class="container mx-auto px-4 py-1 h-20 flex justify-between items-center">
+    <div class="flex items-center">
+      <a href="#" class="flex items-center">
+        <img src="photos/2.png" alt="C.Luxe Logo" class="h-16 w-auto object-contain">
+      </a>
     </div>
+
+    <nav class="hidden md:flex space-x-8">
+      <a href="#home" class="text-white hover:text-amber-400 transition">Home</a>
+      <a href="#properties" class="text-white hover:text-amber-400 transition">Properties</a>
+      <a href="#contact" class="text-white hover:text-amber-400 transition">Contact</a>
+      <a href="aboutUs.html" target="_blank" class="text-white hover:text-amber-400 transition">About</a>
+    </nav>
+
+    <div class="hidden md:block">
+      <a href="https://wa.me/2349054239628" target="_blank"
+         class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 rounded-full font-medium transition">
+        Schedule Consultation
+      </a>
+    </div>
+
+    <button id="mobile-menu-button" class="md:hidden text-white">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white w-full px-4 pb-4 shadow-lg">
+    <div class="flex flex-col space-y-3">
+      <a href="#home" class="text-gray-700 hover:text-amber-700 py-2 border-b">Home</a>
+      <a href="#properties" class="text-gray-700 hover:text-amber-700 py-2 border-b">Properties</a>
+      <a href="#contact" class="text-gray-700 hover:text-amber-700 py-2 border-b">Contact</a>
+      <a href="aboutUs.html" target="_blank" class="text-gray-700 hover:text-amber-700 transition">About</a>
+      <a href="https://wa.me/2349054239628" target="_blank"
+         class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 rounded-full font-medium text-center transition">
+        Schedule Consultation
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero-bg min-h-screen flex items-center">
+  <div class="container mx-auto px-4">
+    <div class="max-w-2xl fade-in">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Discover Your Dream Home</h1>
+      <p class="text-xl text-gray-200 mb-8">
+        C.Luxe Properties and Homes specializes in luxury real estate, offering exclusive properties in the most sought-after locations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Mobile menu toggle
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Header behavior on scroll (transparent -> fixed white)
+  const header = document.getElementById('main-header');
+  const navLinks = header.querySelectorAll('nav a');
+
+  function setHeaderTransparent() {
+    header.classList.remove('fixed', 'bg-white', 'shadow-md');
+    header.classList.add('absolute', 'bg-transparent');
+    navLinks.forEach(link => {
+      link.classList.remove('text-gray-700', 'hover:text-amber-700');
+      link.classList.add('text-white', 'hover:text-amber-400');
+    });
+    menuButton.classList.remove('text-gray-700');
+    menuButton.classList.add('text-white');
+  }
+
+  function setHeaderSolid() {
+    header.classList.remove('absolute', 'bg-transparent');
+    header.classList.add('fixed', 'bg-white', 'shadow-md');
+    navLinks.forEach(link => {
+      link.classList.remove('text-white', 'hover:text-amber-400');
+      link.classList.add('text-gray-700', 'hover:text-amber-700');
+    });
+    menuButton.classList.remove('text-white');
+    menuButton.classList.add('text-gray-700');
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      setHeaderSolid();
+    } else {
+      setHeaderTransparent();
+    }
+  });
+
+  // Initialize correct state on load
+  if (window.scrollY > 50) {
+    setHeaderSolid();
+  } else {
+    setHeaderTransparent();
+  }
+</script>
+
+
+      
+
+    <section id="servicesProductsSection" class="py-12">
+  <div class="container mx-auto px-4">
+    <!-- Tab Buttons -->
+    <div class="flex justify-center space-x-6 mb-8">
+      <button id="servicesTab" class="px-6 py-3 rounded-full bg-amber-700 text-white font-medium">Our Services</button>
+      <button id="productsTab" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium">Our Products</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="servicesContent" class="hidden grid gap-4 text-center">
+      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Property Investment Consulting</button>
+      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Property Management</button>
+
+      <!-- Property Sales Button with Animation -->
+<button onclick="openModal()" 
+  class="relative px-6 py-4 bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg rounded-lg 
+         hover:scale-105 transition transform animate-pulse">
+  Property Sales
+  <span class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 text-xs text-amber-700 font-semibold">
+    🔎 Search Now
+  </span>
+</button>
+
+
+<!-- Modal -->
+<div id="propertyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+  <div class="bg-white rounded-xl shadow-2xl w-11/12 md:w-3/4 lg:w-1/2 relative p-6">
+    <!-- Close Button -->
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">&times;</button>
     
-    <script>
-        function sendSearchToWhatsApp() {
-            const location = document.getElementById('location').value;
-            const type = document.getElementById('type').value;
-            const price = document.getElementById('price').value;
-    
-            const message = `Hello, I'm interested in properties in *${location}*, Type: *${type}*, Price Range: *${price}*. Can you assist?`;
-            const encodedMessage = encodeURIComponent(message);
-    
-            window.open(`https://wa.me/2349054239628?text=${encodedMessage}`, '_blank');
-        }
-    </script>
+    <!-- Form Section -->
+    <h2 class="text-xl font-bold text-gray-800 mb-4">Search Properties</h2>
+    <div class="container mx-auto">
+      <div class="search-form">
+        <form class="grid grid-cols-1 md:grid-cols-4 gap-4" onsubmit="sendSearchToWhatsApp(); return false;">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+            <select id="location" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+              <option value="Not specified">Select Area</option>
+              <option>Ikoyi</option>
+              <option>V.I</option>
+              <option>Lekki</option>
+              <option>Ikate</option>
+              <option>Orchid</option>
+              <option>Ikota</option>
+              <option>Ajah</option>
+              <option>Abraham Adesoya</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
+            <select id="type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+              <option value="Not specified">All Types</option>
+              <option>Shortlet</option>
+              <option>Land</option>
+              <option>Apartment</option>
+              <option>Rentals</option>
+              <option>Duplex</option>
+              <option>Maisonette</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+            <select id="price" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+              <option value="Not specified">Any Price</option>
+              <option>₦100k - ₦1M</option>
+              <option>₦1M - ₦10M</option>
+              <option>₦10M - ₦50M</option>
+              <option>₦50M - ₦100M</option>
+              <option>₦100M - ₦200M</option>
+              <option>₦200M - ₦500M</option>
+              <option>₦500M - ₦1B</option>
+              <option>₦1B+</option>
+            </select>
+          </div>
+          <div class="flex items-end">
+            <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-lg font-medium transition">
+              Search Properties
+            </button>
+          </div>
+           <!-- <a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-center mt-12 flex items-center bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-full font-medium transition">Form</a> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal Controls
+  function openModal() {
+    document.getElementById('propertyModal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('propertyModal').classList.add('hidden');
+  }
+
+  // WhatsApp Integration
+  function sendSearchToWhatsApp() {
+    const location = document.getElementById('location').value;
+    const type = document.getElementById('type').value;
+    const price = document.getElementById('price').value;
+
+    const message = `Hello, I'm interested in properties in *${location}*, Type: *${type}*, Price Range: *${price}*. Can you assist?`;
+    const encodedMessage = encodeURIComponent(message);
+
+    window.open(`https://wa.me/2349054239628?text=${encodedMessage}`, '_blank');
+  }
+</script>
+
+      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Interior Decor</button>
+      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Shortlet Apartment</button>
+    </div>
+
+    <div id="productsContent" class="hidden grid gap-4 text-center">
+      <div class="p-6 bg-white shadow-lg rounded-xl border border-amber-600">
+        <h3 class="text-lg font-bold text-amber-700 mb-2">📘 Free Real Estate eBook</h3>
+        <p class="text-gray-600 mb-4">Download your free guide on real estate investment.</p>
+        <a href="files/cluxe-free-ebook.pdf" download class="inline-block bg-amber-700 hover:bg-amber-800 text-white px-6 py-3 rounded-lg">
+          📥 Download Free eBook
+        </a>
+      </div>
+      <!-- Coming Soon 1 -->
+  <div class="p-6 bg-gray-100 shadow-md rounded-xl text-center">
+    <h3 class="text-lg font-bold text-gray-700 mb-2">🚧 Coming Soon</h3>
+    <p class="text-gray-500">Exciting new product is on the way… stay tuned!</p>
+  </div>
+
+  <!-- Coming Soon 2 -->
+  <div class="p-6 bg-gray-100 shadow-md rounded-xl text-center">
+    <h3 class="text-lg font-bold text-gray-700 mb-2">🚧 Coming Soon</h3>
+    <p class="text-gray-500">We’re working on something amazing for you!</p>
+  </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const servicesTab = document.getElementById("servicesTab");
+  const productsTab = document.getElementById("productsTab");
+  const servicesContent = document.getElementById("servicesContent");
+  const productsContent = document.getElementById("productsContent");
+  const section = document.getElementById("servicesProductsSection");
+
+  // Tab switching
+  servicesTab.addEventListener("click", () => {
+    servicesContent.classList.toggle("hidden");
+    productsContent.classList.add("hidden");
+  });
+
+  productsTab.addEventListener("click", () => {
+    productsContent.classList.toggle("hidden");
+    servicesContent.classList.add("hidden");
+  });
+
+  // Reset when scrolled past
+  window.addEventListener("scroll", () => {
+    const rect = section.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      servicesContent.classList.add("hidden");
+      productsContent.classList.add("hidden");
+    }
+  });
+</script>
+
+
+
+
     
 
     <!-- Featured Properties 1-->
@@ -444,7 +639,7 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose C.luxe Properties</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose C.luxe Properties and Homes</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our commitment to excellence and personalized service sets us apart in the luxury real estate market.</p>
             </div>
             
@@ -481,7 +676,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear what our clients say about their experience with C.luxe Properties.</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear what our clients say about their experience with C.luxe Properties and Homes.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -574,12 +769,10 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div>
-                    <img src="photos/Copy of Your Paragraph Text - White C.Luxe Logo - Edited.png" alt="C.Luxe Logo" class="h-20 w-auto inline-block">
-                     <!-- <h3 class="text-2xl font-bold mb-4">
-                        <span class="text-amber-700">C.</span>luxe Properties
-                    </h3> -->
-                    <p class="text-gray-400"><i>...Invest smart, Live luxury.</i></p>
-                    <div class="flex space-x-4 mt-6">
+                    <img src="photos/2.png" alt="C.Luxe Logo" class="h-20 w-auto object-contain">
+                    <p class="text-gray-400 text-sm font-semibold mt-0 italic ml-6"><i>...End-to-end property solution.</i></p>
+
+                    <div class="flex space-x-4 mt-6 ml-14">
                         <a href="https://Facebook.com/cluxeproperties" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://tiktok.com/@c.luxeproperties" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-tiktok"></i></a>
                         <a href="https://wa.me/2349054239628" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-whatsapp"></i></a>
@@ -604,11 +797,11 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Selling</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Shortlet</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Renting</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Property Management</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-amber-700 transition">Investment Consulting</a></li>
+                        <li class="text-gray-400 transition">Property Investment Consulting</li>
+                        <li class="text-gray-400 transition">Property Sales</li>
+                        <li class="text-gray-400 transition">Property Management</li>
+                        <li class="text-gray-400 transition">Interior Decor</li>
+                        <li class="text-gray-400 transition">Shortlet Apartment</li>
                     </ul>
                 </div>
                 
@@ -633,7 +826,7 @@
             
             <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 C.luxe Properties. All rights reserved.</p>
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 C.luxe Properties and Homes. All rights reserved.</p>
                     <div class="flex space-x-6">
                         <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Privacy Policy</a>
                         <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Terms of Service</a>
@@ -644,81 +837,55 @@
         </div>
     </footer>
 
-    
+    <!-- Back-to-Top Button with Progress -->
+<div id="backToTop" class="fixed bottom-6 left-6 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center cursor-pointer z-50">
+  <svg class="w-10 h-10 transform -rotate-90" viewBox="0 0 36 36">
+    <!-- Circle background -->
+    <path class="text-gray-300" stroke="currentColor" stroke-width="3" fill="none"
+          d="M18 2.0845
+             a 15.9155 15.9155 0 0 1 0 31.831
+             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+    <!-- Progress circle -->
+    <path id="progressCircle" class="text-amber-700" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"
+          stroke-dasharray="100, 100" d="M18 2.0845
+             a 15.9155 15.9155 0 0 1 0 31.831
+             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+  </svg>
+  <!-- Arrow Icon -->
+  <i class="fas fa-arrow-up absolute text-amber-700 text-lg"></i>
+</div>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-amber-700 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+<script>
+  const backToTop = document.getElementById("backToTop");
+  const progressCircle = document.getElementById("progressCircle");
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.style.opacity = '1';
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        window.addEventListener('load', fadeInOnScroll);
-    </script>
+  // Show button only after scrolling a bit
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
+
+    // Update circular progress
+    progressCircle.setAttribute("stroke-dasharray", `${scrolled}, 100`);
+
+    // Toggle visibility
+    if (scrollTop > 200) {
+      backToTop.style.display = "flex";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  // Scroll to top on click
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Initially hidden
+  backToTop.style.display = "none";
+</script>
+
+
 
     <script>
   function toggleChat() {
