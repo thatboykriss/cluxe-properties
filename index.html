@@ -908,6 +908,30 @@ document.querySelector("form").addEventListener("submit", async function (e) {
 });
 </script>
 
+<script>
+document.querySelector("form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    alert("Message sent! We’ll get back to you soon.");
+    this.reset();
+  } else {
+    alert("Oops, something went wrong: " + result.message);
+  }
+});
+</script>
+
 
 </body>
 </html>

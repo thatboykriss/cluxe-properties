@@ -61,3 +61,18 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "Email not sent" });
   }
 }
+
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    try {
+      // send email here (your nodemailer logic)
+
+      return res.status(200).json({ success: true, message: "Email sent" });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ success: false, message: "Server error" });
+    }
+  } else {
+    return res.status(405).json({ success: false, message: "Method not allowed" });
+  }
+}
