@@ -22,7 +22,7 @@ async function parseBody(req) {
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ success: false, message: "Method not allowed" });
   }
 
   const body = await parseBody(req);
@@ -31,15 +31,15 @@ export default async function handler(req, res) {
   const message = body.message || body.Message;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ error: "Missing required fields" });
+    return res.status(400).json({ success: false, message: "Missing required fields" });
   }
 
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // your email
-        pass: process.env.EMAIL_PASS, // Google App Password
+        user: process.env.EMAIL_USER, // your Gmail
+        pass: process.env.EMAIL_PASS, // App password
       },
     });
 
@@ -53,26 +53,12 @@ export default async function handler(req, res) {
              <p><b>Message:</b><br/>${message}</p>`,
     });
 
-    // If submitted from a normal HTML form, redirect to a thank-you page.
+    // ✅ Redirect to thank-you page
     res.setHeader("Location", "/thank-you.html");
     return res.status(303).end();
-  } catch (err) {
-    console.error("Email error:", err);
-    return res.status(500).json({ error: "Email not sent" });
-  }
-}
 
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    try {
-      // send email here (your nodemailer logic)
-
-      return res.status(200).json({ success: true, message: "Email sent" });
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ success: false, message: "Server error" });
-    }
-  } else {
-    return res.status(405).json({ success: false, message: "Method not allowed" });
+  } catch (error) {
+    console.error("Email error:", error);
+    return res.status(500).json({ success: false, message: "Server error, email not sent." });
   }
 }
