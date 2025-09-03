@@ -365,6 +365,38 @@
 </section>
 
 <script>
+document.getElementById("ebookForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const formData = {
+    name: this.name.value,
+    email: this.email.value,
+    whatsapp: this.whatsapp.value,
+  };
+
+  try {
+    const res = await fetch("/api/ebook", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      // Show download link
+      document.getElementById("ebookDownload").classList.remove("hidden");
+      this.reset();
+    } else {
+      alert("⚠️ Failed to submit form. Please try again.");
+    }
+  } catch (err) {
+    alert("⚠️ Something went wrong. Please try again later.");
+    console.error(err);
+  }
+});
+</script>
+
+
+<script>
   const servicesTab = document.getElementById("servicesTab");
   const productsTab = document.getElementById("productsTab");
   const servicesContent = document.getElementById("servicesContent");
@@ -937,7 +969,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
 });
 </script>
 
-<script>
+<!-- <script>
   const ebookForm = document.getElementById("ebookForm");
   const ebookDownload = document.getElementById("ebookDownload");
 
@@ -972,7 +1004,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
       }
     });
   }
-</script>
+</script> -->
 
 
 

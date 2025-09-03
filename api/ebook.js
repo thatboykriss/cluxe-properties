@@ -13,26 +13,27 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Setup email transport (use the same Gmail/SMTP settings from contact.js)
-    let transporter = nodemailer.createTransport({
+    // 🔹 Setup Gmail SMTP with App Password
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER, // your business Gmail
-        pass: process.env.EMAIL_PASS, // app password
+        user: process.env.EMAIL_USER, // your Gmail
+        pass: process.env.EMAIL_PASS, // Gmail App Password
       },
     });
 
-    // Send email with lead details
+    // 🔹 Send lead details to your inbox
     await transporter.sendMail({
       from: `"C. Luxe Properties" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO, // your inbox
+      to: process.env.EMAIL_USER, // send to your own inbox
       subject: "📘 New eBook Lead",
-      text: `A visitor requested the eBook.\n\nName: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}`,
+      text: `A visitor requested the eBook:\n\nName: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}`,
     });
 
+    // ✅ Success
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Error sending eBook lead:", error);
+    console.error("❌ Error sending eBook lead:", error);
     return res.status(500).json({ message: "Something went wrong" });
   }
 }
