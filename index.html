@@ -226,16 +226,29 @@
     <section id="servicesProductsSection" class="py-12">
   <div class="container mx-auto px-4">
     <!-- Tab Buttons -->
-    <div class="flex justify-center space-x-6 mb-8">
-      <button id="servicesTab" class="px-6 py-3 rounded-full bg-amber-700 text-white font-medium">Our Services</button>
-      <button id="productsTab" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium">Our Products</button>
-    </div>
+    <div class="flex gap-4 justify-center mb-8">
+  <button id="servicesTab" class="px-6 py-3 rounded-full bg-amber-700 text-white font-medium transition">
+    Our Services
+  </button>
+  <button id="productsTab" class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 hover:bg-white font-medium transition">
+    Our Products
+  </button>
+</div>
+
 
     <!-- Tab Content -->
     <div id="servicesContent" class="hidden grid gap-4 text-center">
-      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Property Investment Consulting</button>
-      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Property Management</button>
+     <a href="https://wa.me/2349054239628?text=I'm%20interested%20in%20Property%20Investment%20Consulting" target="_blank" rel="noopener noreferrer">
+  <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">
+    Property Investment Consulting
+  </button>
+</a>
 
+     <a href="https://wa.me/2349054239628?text=I'm%20interested%20in%20Property%20Management" target="_blank" rel="noopener noreferrer">
+  <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">
+    Property Management
+  </button>
+</a>
       <!-- Property Sales Button with Animation -->
 <button onclick="openModal()" 
   class="relative px-6 py-4 bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg rounded-lg 
@@ -332,8 +345,16 @@
   }
 </script>
 
-      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Interior Decor</button>
-      <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Shortlet Apartment</button>
+      <a href="https://wa.me/2348139522155?text=I'm%20interested%20in%20Interior%20Decor" target="_blank" rel="noopener noreferrer">
+  <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">
+    Interior Decor
+  </button>
+</a>
+      <a href="https://wa.me/2349054239628?text=I'm%20interested%20in%20Shortlet%20Apartment" target="_blank" rel="noopener noreferrer">
+  <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">
+    Shortlet Apartment
+  </button>
+</a>
     </div>
 
    <div id="productsContent" class="hidden grid gap-4 text-center">
@@ -403,26 +424,41 @@ document.getElementById("ebookForm").addEventListener("submit", async function (
   const productsContent = document.getElementById("productsContent");
   const section = document.getElementById("servicesProductsSection");
 
-  // Tab switching
+  // Tab switching (button + content)
   servicesTab.addEventListener("click", () => {
-    servicesContent.classList.toggle("hidden");
+    // Button styles
+    servicesTab.className = "px-6 py-3 rounded-full bg-amber-700 text-white font-medium transition";
+    productsTab.className = "px-6 py-3 rounded-full bg-gray-200 text-gray-700 hover:bg-white font-medium transition";
+
+    // Show Services content, hide Products
+    servicesContent.classList.remove("hidden");
     productsContent.classList.add("hidden");
   });
 
   productsTab.addEventListener("click", () => {
-    productsContent.classList.toggle("hidden");
+    // Button styles
+    productsTab.className = "px-6 py-3 rounded-full bg-amber-700 text-white font-medium transition";
+    servicesTab.className = "px-6 py-3 rounded-full bg-gray-200 text-gray-700 hover:bg-white font-medium transition";
+
+    // Show Products content, hide Services
+    productsContent.classList.remove("hidden");
     servicesContent.classList.add("hidden");
   });
 
-  // Reset when scrolled past
+  // Optional: reset when scrolled past section
   window.addEventListener("scroll", () => {
     const rect = section.getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > window.innerHeight) {
       servicesContent.classList.add("hidden");
       productsContent.classList.add("hidden");
+
+      // Reset button styles
+      servicesTab.className = "px-6 py-3 rounded-full bg-gray-200 text-gray-700 hover:bg-white font-medium transition";
+      productsTab.className = "px-6 py-3 rounded-full bg-gray-200 text-gray-700 hover:bg-white font-medium transition";
     }
   });
 </script>
+
 
 
 
