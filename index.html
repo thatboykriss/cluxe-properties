@@ -969,42 +969,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
 });
 </script>
 
-<!-- <script>
-  const ebookForm = document.getElementById("ebookForm");
-  const ebookDownload = document.getElementById("ebookDownload");
 
-  if (ebookForm) {
-    ebookForm.addEventListener("submit", async (e) => {
-      e.preventDefault(); // stop normal page reload
-
-      const formData = {
-        name: ebookForm.name.value,
-        email: ebookForm.email.value,
-        whatsapp: ebookForm.whatsapp.value,
-      };
-
-      try {
-        const res = await fetch("/api/ebook", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-
-        const data = await res.json();
-
-        if (data.success) {
-          ebookDownload.classList.remove("hidden"); // show download link
-          ebookForm.reset();
-        } else {
-          alert("⚠️ Failed to submit form.");
-        }
-      } catch (err) {
-        console.error(err);
-        alert("⚠️ Failed to submit form.");
-      }
-    });
-  }
-</script> -->
 
 
 
