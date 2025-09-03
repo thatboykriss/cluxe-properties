@@ -336,26 +336,31 @@
       <button class="p-4 bg-gray-100 rounded-lg shadow hover:bg-amber-100">Shortlet Apartment</button>
     </div>
 
-    <div id="productsContent" class="hidden grid gap-4 text-center">
-      <div class="p-6 bg-white shadow-lg rounded-xl border border-amber-600">
-        <h3 class="text-lg font-bold text-amber-700 mb-2">📘 Free Real Estate eBook</h3>
-        <p class="text-gray-600 mb-4">Download your free guide on real estate investment.</p>
-        <a href="files/cluxe-free-ebook.pdf" download class="inline-block bg-amber-700 hover:bg-amber-800 text-white px-6 py-3 rounded-lg">
-          📥 Download Free eBook
-        </a>
-      </div>
-      <!-- Coming Soon 1 -->
-  <div class="p-6 bg-gray-100 shadow-md rounded-xl text-center">
-    <h3 class="text-lg font-bold text-gray-700 mb-2">🚧 Coming Soon</h3>
-    <p class="text-gray-500">Exciting new product is on the way… stay tuned!</p>
-  </div>
+   <div id="productsContent" class="hidden grid gap-4 text-center">
+  <div class="p-6 bg-white shadow-lg rounded-xl border border-amber-600">
+    <h3 class="text-lg font-bold text-amber-700 mb-2">📘 The 2025 Lagos Property Investment Blueprint.</h3>
+    <p class="text-gray-600 mb-4">Fill the form below to get your free guide on real estate investment.</p>
 
-  <!-- Coming Soon 2 -->
-  <div class="p-6 bg-gray-100 shadow-md rounded-xl text-center">
-    <h3 class="text-lg font-bold text-gray-700 mb-2">🚧 Coming Soon</h3>
-    <p class="text-gray-500">We’re working on something amazing for you!</p>
-  </div>
+   <form id="ebookForm" class="space-y-3">
+  <input type="text" name="name" placeholder="Your Name" required class="w-full p-2 border rounded">
+  <input type="email" name="email" placeholder="Your Email" required class="w-full p-2 border rounded">
+  <input type="text" name="whatsapp" placeholder="WhatsApp Number" required class="w-full p-2 border rounded">
+
+  <button type="submit" class="bg-amber-700 hover:bg-amber-800 text-white px-6 py-3 rounded-lg w-full">
+    📥 Get Free eBook
+  </button>
+</form>
+
+
+    <!-- Hidden download link (shown only after success) -->
+    <div id="ebookDownload" class="hidden mt-4">
+      <a href="File/The 2025 Lagos Property Investment Blueprint.pdf" download class="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg">
+        ✅ Download eBook Now
+      </a>
     </div>
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -931,6 +936,44 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   }
 });
 </script>
+
+<script>
+  const ebookForm = document.getElementById("ebookForm");
+  const ebookDownload = document.getElementById("ebookDownload");
+
+  if (ebookForm) {
+    ebookForm.addEventListener("submit", async (e) => {
+      e.preventDefault(); // stop normal page reload
+
+      const formData = {
+        name: ebookForm.name.value,
+        email: ebookForm.email.value,
+        whatsapp: ebookForm.whatsapp.value,
+      };
+
+      try {
+        const res = await fetch("/api/ebook", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          ebookDownload.classList.remove("hidden"); // show download link
+          ebookForm.reset();
+        } else {
+          alert("⚠️ Failed to submit form.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("⚠️ Failed to submit form.");
+      }
+    });
+  }
+</script>
+
 
 
 </body>
