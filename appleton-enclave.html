@@ -16,6 +16,70 @@
  <link rel="icon" type="image/x-icon" href="/photos/2.png">
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+/* Lightbox overlay */
+#lb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+
+/* When open */
+#lb-overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Large image */
+#lb-image {
+  max-width: 90vw;
+  max-height: 82vh;
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+  object-fit: contain;
+}
+
+/* Buttons */
+.lb-btn {
+  position: absolute;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  backdrop-filter: blur(4px);
+}
+#lb-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+#lb-next { right: 18px; top: 50%; transform: translateY(-50%); }
+#lb-close { right: 18px; top: 18px; transform: none; }
+
+/* Caption / index */
+#lb-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  background: rgba(0,0,0,0.25);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* make clicked images show pointer */
+#gallerySection img { cursor: zoom-in; }
+</style>
+
 </head>
 <body class="bg-gray-50 text-gray-900">
 
@@ -32,7 +96,7 @@
     <p class="text-lg text-gray-600">A contemporary estate located within the rapidly developing Lekki Free Trade Zone, a hub in Lagos State’s evolving economy.</p>
   </div>
 
-  <section class="my-6">
+  <section class="my-6" id="gallerySection">
     <h3 class="text-lg font-medium mb-2">Gallery</h3>
     <div class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-2">
       <img src="photos/appleton enclave/1.jpg" class="h-60 rounded-lg shadow-md snap-center flex-shrink-0" alt="Property Image 1">
@@ -40,12 +104,7 @@
       <img src="photos/appleton enclave/3.jpg" class="h-60 rounded-lg shadow-md snap-center flex-shrink-0" alt="Property Image 3">
       <img src="photos/appleton enclave/4.jpg" class="h-60 rounded-lg shadow-md snap-center flex-shrink-0" alt="Property Image 4">
 
-    <div class="hidden md:grid grid-cols-4 gap-2 mt-4">
-      <img src="photos/appleton enclave/1.jpg" class="rounded-lg shadow cursor-pointer" alt="Thumbnail 1">
-      <img src="photos/appleton enclave/2.jpg" class="rounded-lg shadow cursor-pointer" alt="Thumbnail 2">
-      <img src="photos/appleton enclave/3.jpg" class="rounded-lg shadow cursor-pointer" alt="Thumbnail 3">
-      <img src="photos/appleton enclave/4.jpg" class="rounded-lg shadow cursor-pointer" alt="Thumbnail 4">
-    </div>
+    
   </section>
 
    <!-- Video Modal -->
@@ -119,6 +178,95 @@
 <footer class="bg-gray-900 text-gray-300 text-center py-4 text-sm">
   &copy; 2025 Cluxe Properties and Homes | <a href="#" class="text-amber-500">Privacy Policy</a>
 </footer>
+
+<script>
+(function () {
+  const section = document.getElementById('gallerySection');
+  if (!section) return;
+
+  // collect unique image sources in order
+  const imgs = Array.from(section.querySelectorAll('img'));
+  const srcs = [];
+  imgs.forEach(img => {
+    const s = img.getAttribute('src');
+    if (!srcs.includes(s)) srcs.push(s);
+  });
+
+  // build lightbox DOM
+  const overlay = document.createElement('div');
+  overlay.id = 'lb-overlay';
+  overlay.innerHTML = `
+    <button id="lb-close" class="lb-btn" aria-label="Close">✕</button>
+    <button id="lb-prev" class="lb-btn" aria-label="Previous">‹</button>
+    <img id="lb-image" src="" alt="Gallery image">
+    <button id="lb-next" class="lb-btn" aria-label="Next">›</button>
+    <div id="lb-caption"></div>
+  `;
+  document.body.appendChild(overlay);
+
+  const lbOverlay = document.getElementById('lb-overlay');
+  const lbImage = document.getElementById('lb-image');
+  const lbCaption = document.getElementById('lb-caption');
+  const btnNext = document.getElementById('lb-next');
+  const btnPrev = document.getElementById('lb-prev');
+  const btnClose = document.getElementById('lb-close');
+
+  let current = 0;
+
+  function show(index) {
+    current = (index + srcs.length) % srcs.length;
+    lbImage.src = srcs[current];
+    lbCaption.textContent = `${current + 1} / ${srcs.length}`;
+    lbOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lbOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  // open when image clicked (works for thumbnails & scroll images)
+  imgs.forEach(img => {
+    img.addEventListener('click', (e) => {
+      const s = img.getAttribute('src');
+      const idx = srcs.indexOf(s);
+      if (idx !== -1) show(idx);
+    });
+  });
+
+  btnNext.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+  btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  btnClose.addEventListener('click', close);
+
+  // click outside image to close
+  lbOverlay.addEventListener('click', (e) => {
+    if (e.target === lbOverlay) close();
+  });
+
+  // keyboard
+  document.addEventListener('keydown', (e) => {
+    if (!lbOverlay.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  // touch swipe on the big image
+  let startX = 0;
+  lbImage.addEventListener('touchstart', (e) => {
+    startX = e.changedTouches[0].clientX;
+  });
+  lbImage.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next(); else prev();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
