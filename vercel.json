@@ -1,0 +1,17 @@
+{
+    "rewrites": [
+        { "source": "/", "destination": "/index.html" },
+        { "source": "/home/", "destination": "/index.html" },
+        { "source": "/properties/", "destination": "/properties.html" },
+        { "source": "/contact/", "destination": "/contact.html" },
+        { "source": "/about/", "destination": "/about.html" },
+        { "source": "/services/", "destination": "/services.html" },
+        { "source": "/1bed-mijl/", "destination": "/1bed-mijl.html" },
+        { "source": "/2bed-ikoyi/", "destination": "/2bed-ikoyi.html" },
+        { "source": "/aboutUs/", "destination": "/aboutUs.html" },
+        { "source": "/aje-gardens/", "destination": "/aje-gardens.html.html" },
+        { "source": "/appleton-enclave/", "destination": "/appleton-enclave.html" },
+        { "source": "/ikate-lekki/", "destination": "/ikate-lekki.html" },
+        { "source": "/la-maisonette/", "destination": "/la-maisonette.html" }
+    ]
+}
