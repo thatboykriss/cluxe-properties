@@ -34,6 +34,37 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: false, message: "Missing required fields" });
   }
 
+  // 🔒 SPAM PROTECTION BLOCK
+
+// Block suspicious domains
+const blockedDomains = ["mail.ru", "maiilscores.com", ".ru"];
+if (blockedDomains.some(domain => email.toLowerCase().includes(domain))) {
+  return res.status(400).json({ success: false, message: "Spam detected" });
+}
+
+// Block weird numeric patterns in email (e.g., 2.8.5.6.998.@gmail.com)
+const weirdPattern = /\d+\.\d+\.\d+/;
+if (weirdPattern.test(email)) {
+  return res.status(400).json({ success: false, message: "Spam detected" });
+}
+
+// Block Cyrillic characters (Russian spam)
+const containsCyrillic = /[а-яА-ЯЁё]/;
+if (containsCyrillic.test(message)) {
+  return res.status(400).json({ success: false, message: "Spam detected" });
+}
+
+// Block links in message
+if (message.includes("http") || message.includes("www")) {
+  return res.status(400).json({ success: false, message: "Links not allowed" });
+}
+
+// Minimum message length
+if (message.length < 10) {
+  return res.status(400).json({ success: false, message: "Message too short" });
+}
+
+
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",

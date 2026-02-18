@@ -48,29 +48,54 @@
     </section>
 
     <section class="mb-12 relative">
-        <h3 class="text-xl font-semibold mb-3">Meet the Founder</h3>
-        <div class="md:flex md:items-center md:gap-6">
-          <img src="photos/Founder.png" alt="Christian Chima-Solomon - Founder of Cluxe Properties"
-               class="w-40 h-40 rounded-full object-cover mb-4 md:mb-0 cursor-pointer"
-               onclick="document.getElementById('lightbox').classList.remove('hidden')">
-               
-          <div>
-            <h4 class="text-lg font-bold">Christian Chima-Solomon</h4>
-            <p class="text-gray-700 leading-relaxed mt-2">
-              Christian is a passionate realtor and property investment consultant who founded Cluxe Properties and Homes to redefine luxury living in Nigeria. With an eye for value and commitment to excellence, Christian is dedicated to helping clients find the perfect home or real estate investment.
-            </p>
-          </div>
-        </div>
-      
-        <!-- Lightbox -->
-        <div id="lightbox" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div class="relative max-w-3xl w-full p-4">
-            <button onclick="document.getElementById('lightbox').classList.add('hidden')"
-                    class="absolute top-2 right-2 text-white text-2xl font-bold">&times;</button>
-            <img src="photos/Founder.png" alt="Full Image of Founder" class="w-full rounded-lg shadow-lg">
-          </div>
-        </div>
-      </section>
+  <h3 class="text-xl font-semibold mb-3">Meet the Founder</h3>
+
+  <div class="md:flex md:items-center md:gap-6">
+    <!-- Founder Image -->
+    <img src="photos/Founder.png"
+         alt="Christian Chima-Solomon - Founder of Cluxe Properties"
+         class="w-40 h-40 rounded-full object-cover mb-4 md:mb-0 cursor-pointer"
+         onclick="openLightbox()">
+
+    <div>
+      <h4 class="text-lg font-bold">Christian Chima-Solomon</h4>
+      <p class="text-gray-700 leading-relaxed mt-2">
+       Christian is a passionate realtor and property investment consultant who founded Cluxe Properties and Homes to redefine luxury living in Nigeria. With an eye for value and commitment to excellence, Christian is dedicated to helping clients find the perfect home or real estate investment.
+      </p>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox"
+       style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999;">
+
+    <!-- CLOSE BUTTON (Top Right of Screen) -->
+    <span onclick="closeLightbox()"
+          style="position:absolute; top:20px; right:30px;
+                 font-size:40px; color:white;
+                 font-weight:bold; cursor:pointer;">
+      &times;
+    </span>
+
+    <!-- Image -->
+    <div style="display:flex; align-items:center; justify-content:center; height:100%;">
+      <img src="photos/Founder.png"
+           style="max-width:90%; max-height:90%; border-radius:10px;">
+    </div>
+  </div>
+</section>
+
+<script>
+  function openLightbox() {
+    document.getElementById("lightbox").style.display = "block";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
+
       
 
     <div class="text-center my-8">
@@ -79,9 +104,79 @@
 
   </main>
 
-  <footer class="bg-gray-900 text-gray-300 text-center py-4 text-sm">
-    &copy; 2025 Cluxe Properties and Homes | <a href="#" class="text-amber-500">Privacy Policy</a>
-  </footer>
+<!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="photos/2.png" alt="Cluxe Logo" class="h-20 w-auto object-contain">
+                    <p class="text-gray-400 text-sm font-semibold mt-0 italic ml-6"><i>...End-to-end property solution.</i></p>
+
+                    <div class="flex space-x-4 mt-6 ml-14">
+                        <a href="https://Facebook.com/cluxeproperties" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/cluxepropertiesandhomes" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-instagram"></i></a>  
+                        <a href="https://tiktok.com/@c.luxeproperties" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2349054239628" target="_blank" class="text-gray-400 hover:text-amber-700 transition"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:cluxeproperties@gmail.com" target="_blank" class="text-gray-400 hover:text-amber-700 transition">
+                            <i class="fas fa-envelope" style="transform: rotate(0); display: inline-block;"></i>
+                          </a>
+                          
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-700 transition">Home</a></li>
+                        <li><a href="aboutUs.html" target="_self" class="text-gray-400 hover:text-amber-700 transition">About Us</a></li>
+                        <li><a href="#properties" class="text-gray-400 hover:text-amber-700 transition">Properties</a></li>
+                        <li><a href="https://forms.gle/uM9vmsDLe4aqjtcQ9" target="_blank" class="text-gray-400 hover:text-amber-700 transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-700 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400 transition">Property Investment Consulting</li>
+                        <li class="text-gray-400 transition">Property Sales</li>
+                        <li class="text-gray-400 transition">Property Management</li>
+                        <li class="text-gray-400 transition">Interior Decor</li>
+                        <li class="text-gray-400 transition">Shortlet Apartment</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3" style="color: #034193;"></i>
+                            <span class="text-gray-400">Ayo Adeleye Drive<br>Lekki, Lagos.</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-amber-700 mr-3" style="transform: rotate(180deg) scaleY(-1); color: #034193;"></i>
+                            <span class="text-gray-400">+234 9054239628, +234 8139522155</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-amber-700 mr-3" style="color: #034193;"></i>
+                            <span class="text-gray-400">cluxeproperties@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Cluxe Properties and Homes. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-amber-700 text-sm transition">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
